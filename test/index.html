@@ -1,0 +1,264 @@
+<html lang="en-US"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Material Design Expanded List</title>
+
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Raleway');
+	
+	body {
+		font-family: Raleway, sans-serif;
+	}
+	
+	h3.notice_card_title {
+		font-weight: 800;
+		font-size: 15pt;
+	}
+	
+	.underline {
+		border-bottom: 1px solid #707070;
+	}
+	
+	pre {
+		background: rgba(112,112,112,0.2);
+	}
+	
+	.zone {
+	margin-bottom: 2em;
+	}
+	
+	.header {
+		margin-top: 1em;
+	}
+	
+	.demos {
+		margin-top: 1em;
+	}
+	
+	.demo_zone {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+	
+	.demo_zone.out {
+		height: 140px;
+		overflow-y:auto;
+	}
+	
+	.zone_left {
+		left:0;
+	}
+	.zone_right {
+		right:0;
+	}
+	.zone_parent {
+		position: relative;
+	}
+	
+	.custom_css {
+		color: deepskyblue;
+	}
+	
+	</style>
+	
+	<link rel="stylesheet" href="../src/matd_checkbox.css" type="text/css" media="screen" />
+
+</head>
+
+<body>
+	<div class="header">
+		<h2 class="underline">
+		Material Design Expanded List ( matd_expand_list )
+		</h2>
+		<p>This is a component designed to provide a quick way to generate a Material Design expanded list into a site or app.</p>
+		<p>
+
+		</p>
+	</div>
+	
+	<div>
+		<h3>Getting Started</h3>
+		<p>To get started, place the following lines in your web page or application:</p>
+		<pre>
+	
+   &lt;link rel="stylesheet" href="js/matd_checkbox/src/matd_checkbox.css" type="text/css" media="screen" /&gt;
+   &lt;script type="text/javascript" src="js/jquery/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+   &lt;script type="text/javascript" src="js/matd_checkbox/src/matd_checkbox.min.js"&gt;&lt;/script&gt;
+		</pre>
+	
+		<p>
+			To use, either initialize the control against an existing HTML checkbox. Or initialize the control with color or other paramters against an existing checkbox.
+		
+			<pre>
+	
+   $('#test').matd_checkbox(_param);
+			</pre>
+	
+			The examples below cover these in detail.
+		</p>
+	
+	</div>
+	
+	<div class="demos">
+	
+	</div>
+	
+	<h3>Examples</h3>
+	<div class="zone_parent">
+		<div class="zone zone_left">
+			<h4>Basic use of the MatD Checkbox control</h4>
+	
+			The most basic use is by initializing the control against an existing checkbox. Like so:
+			<br>
+			<pre>
+   $('#test1').matd_checkbox();
+			</pre>
+	
+			A demo of this is shown here
+	
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+			<div class="demo_zone">
+					<input id="test1" type="checkbox" value="is_checked">
+			</div>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+	
+			<p>
+				<button onclick="start1()">Start Demo</button>
+			</p>
+		</div>
+		<hr>
+	</div>
+	
+	<div class="zone_parent">
+			<div class="zone zone_left">
+				<h4>Using an 'indeterminate' visual instead of a check</h4>
+		
+				This isn't a common use case but at times a 'partial' or 'indeterminate' visual indicator is necessary when starting the control.
+				To do that, initialize the control as always using a 'partial:true' parameter.
+				<br>
+				<pre>
+   $('#test2').matd_checkbox({ 'partial': true });
+				</pre>
+		
+				A demo of this is shown here
+		
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+				</p>
+				<div class="demo_zone">
+						<input id="test2" type="checkbox" value="is_checked">
+				</div>
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+				</p>
+		
+				<p>
+					<button onclick="start2()">Start Demo</button>
+				</p>
+			</div>
+			<hr>
+		</div>		
+
+		<div class="zone_parent">
+				<div class="zone zone_left">
+					<h4>Setting the checked state after initialization</h4>
+		
+					Because of the animation effect, it works best to control the 'checked state' via the API. Like so:
+					<br>
+					First initialize the control ...
+					<pre>
+   $('#test3').matd_checkbox();
+					</pre>
+					Then issue a call to the API and set the check via passing either a true or a false.
+					<pre>
+   $('#test3').matd_checkbox('go_check',true);
+					</pre>					
+			
+					A demo of this is shown here
+			
+					<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+					</p>
+					<div class="demo_zone">
+							<input id="test3" type="checkbox" value="is_checked">
+					</div>
+					<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+					</p>
+			
+					<p>
+						<button onclick="start3()">Start Demo</button>
+						&nbsp;&nbsp;
+						<button onclick="start3_check(true)">Check </button>
+						&nbsp;&nbsp;
+						<button onclick="start3_check(false)">Uncheck </button>						
+					</p>
+				</div>
+				<hr>
+			</div>		
+
+			<div class="zone_parent">
+					<div class="zone zone_left">
+						<h4>Setting colors</h4>
+				
+						There are two colors for a checkbox. The outline color and the 'active' color when checked. These can be set by passing in a color code via the 'outline_color' and 'clicked_color'.
+						<br>
+						Here we'll set the 'active' clicked color with a deep red.
+
+						<pre>
+    $('#test4').matd_checkbox({ 'clicked_color': '#e10050' });
+						</pre>
+				
+						A demo of this is shown here
+				
+						<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+						</p>
+						<div class="demo_zone">
+								<input id="test4" type="checkbox" value="is_checked">
+						</div>
+						<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+						</p>
+				
+						<p>
+							<button onclick="start4()">Start Demo</button>
+						</p>
+					</div>
+					<hr>
+				</div>			
+	
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../src/matd_checkbox.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	function start1() {
+		$('#test1').matd_checkbox();
+	}
+
+	function start2() {
+		$('#test2').matd_checkbox({ 'partial': true });
+	}
+
+	function start3() {
+		$('#test3').matd_checkbox();
+	}	
+	function start3_check(_yesno) {
+		$('#test3').matd_checkbox('go_check',_yesno);
+	}
+
+	function start4() {
+		$('#test4').matd_checkbox({ 'clicked_color': '#e10050' });
+	}	
+
+	</script>
+	
+	</body>
+
+</html>
